@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zodiax - Guess star signs</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <header class="bg-purple-700 py-4">
+        <div class="container mx-auto">
+        <h1 class="text-white text-4xl font-bold">Welcome to Zodiax! </h1>
+        </div>
+    </header>
+
+    <main class="container mx-auto py-8">
+        <section class="bg-white rounded-lg shadow-lg p-6">
+          <form>
+            <fieldset class="mt-6">
+              <legend class="text-xl font-bold mb-6">Question: What zodiac sign is on <u id="date">February, 14th</u>?</legend>
+    
+              <div class="space-y-4">
+                <label class="flex items-center">
+                  <input type="radio" name="answer" value="1">
+                  <span class="ml-2">Capricorn (Goat)</span>
+                </label>
+      
+                <label class="flex items-center">
+                  <input type="radio" name="answer" value="2">
+                  <span class="ml-2">Aquarius (Water bearer)</span>
+                </label>
+      
+                <label class="flex items-center">
+                    <input type="radio" name="answer" value="3">
+                    <span class="ml-2">Pisces (Fishes)</span>
+                </label>
+
+                <label class="flex items-center">
+                    <input type="radio" name="answer" value="4">
+                    <span class="ml-2">Aries (Ram)</span>
+                </label>
+
+                <label class="flex items-center">
+                    <input type="radio" name="answer" value="5">
+                    <span class="ml-2">Taurus (Bull)</span>
+                </label>
+
+                <label class="flex items-center">
+                    <input type="radio" name="answer" value="6">
+                    <span class="ml-2">Gemini (Twins)</span>
+                </label>
+
+                <label class="flex items-center">
+                    <input type="radio" name="answer" value="7">
+                    <span class="ml-2">Cancer (Crab)</span>
+                </label>
+
+                <label class="flex items-center">
+                    <input type="radio" name="answer" value="8">
+                    <span class="ml-2">Leo (Lion)</span>
+                </label>
+
+                <label class="flex items-center">
+                    <input type="radio" name="answer" value="9">
+                    <span class="ml-2">Virgo (Virgin)</span>
+                </label>
+
+                <label class="flex items-center">
+                    <input type="radio" name="answer" value="10">
+                    <span class="ml-2">Libra (Scales)</span>
+                </label>
+
+                <label class="flex items-center">
+                    <input type="radio" name="answer" value="11">
+                    <span class="ml-2">Scorpio (Scorpion)</span>
+                </label>
+
+                <label class="flex items-center">
+                    <input type="radio" name="answer" value="12">
+                    <span class="ml-2">Sagittarius (Archer)</span>
+                </label>
+              </div>
+            </fieldset>
+            <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded mt-4">
+                Check
+              </button>
+          </form>
+        </section>
+      </main>
+      
+
+    <footer class="bg-gray-300 py-4">
+        <div class="container mx-auto text-center">
+        <p class="text-gray-600">© 2023 Zodiax. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+<script>
+    function onSiteLoad() {
+        generateDate();
+    }
+
+    $(document).ready(onSiteLoad);
+
+    function generateDate() {
+      const daysOfYear = 365; // Considering a non-leap year
+      const randomValue = Math.floor(Math.random() * daysOfYear); // Generate random value from 0 to 364
+
+      // Create a date object for January 1st of the current year
+      const startDate = new Date(new Date().getFullYear(), 0, 1);
+
+      // Add the random number of days to the start date
+      const generatedDate = new Date(startDate.getTime() + randomValue * 24 * 60 * 60 * 1000);
+
+      // Get the day and month from the generated date
+      const day = generatedDate.getDate();
+      const month = generatedDate.toLocaleString('en-US', { month: 'long' });
+
+      // Output the formatted date
+      const date = `${month}, ${day}${getOrdinalSuffix(day)}`;
+      $("#date").html(date) ;
+    }
+
+    // Function to get the ordinal suffix (e.g., 1st, 2nd, 3rd, 4th, etc.)
+    function getOrdinalSuffix(number) {
+      const suffixes = ["th", "st", "nd", "rd"];
+      const relevantDigits = (number % 100 > 10 && number % 100 < 20) ? 0 : number % 10;
+      return (relevantDigits > 3) ? suffixes[0] : suffixes[relevantDigits];
+    }
+  </script>
+
+</html>
