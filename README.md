@@ -1,2 +1,2 @@
 # zodiax
-Learn the zodiac signs
+Try it out here: http://mqxym.de/zodiax/
