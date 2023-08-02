@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zodiax - Guess star signs</title>
+  <title>Zodiax - Sternzeichen raten</title>
   <meta name="description" content="" />
 	<meta name="keywords" content="" />
 	<meta name="author" content="Marques Xiaomi" />
 	<meta name="copyright" content="Maxim Schulz" />
 	<meta name="page-topic" content="Sternzeichen" />
 	<meta http-equiv="Reply-to" content="maxim@omg.lol" />
-  
+
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -21,9 +21,9 @@
     <div class="ml-4 container mx-auto">
       <h1 class="text-white text-4xl font-bold">Welcome to Zodiax!</h1>
     </div>
-    <a href="index_de.html" class="block">
+    <a href="index.html" class="block">
       <button class="bg-white text-purple-700 font-bold py-2 px-4 rounded mr-4">
-        Deutsch
+        English
       </button>
     </a>
   </header>
@@ -32,84 +32,84 @@
         <section class="bg-white rounded-lg shadow-lg p-6">
           <form>
             <fieldset class="mt-6">
-              <legend class="text-xl font-bold mb-6">Question: What zodiac sign is on <u id="date">February, 14th</u>?</legend>
+              <legend class="text-xl font-bold mb-6">Frage: Welches Sternzeichen ist am <u id="date">14. Februar</u>?</legend>
     
               <div class="lg:flex lg:flex-wrap lg:-mx-2 space-y-4">
                 <label class="flex items-center lg:w-1/2 lg:px-2"">
                   <input type="radio" name="answer" value="1">
-                  <span class="ml-2">♑️ Capricorn (Goat)</span>
+                  <span class="ml-2">♑️ Steinbock</span>
                 </label>
       
                 <label class="flex items-center lg:w-1/2 lg:px-2"">
                   <input type="radio" name="answer" value="2">
-                  <span class="ml-2">♒️ Aquarius (Water bearer)</span>
+                  <span class="ml-2">♒️ Wassermann</span>
                 </label>
       
                 <label class="flex items-center lg:w-1/2 lg:px-2"">
                     <input type="radio" name="answer" value="3">
-                    <span class="ml-2">♓️ Pisces (Fishes)</span>
+                    <span class="ml-2">♓️ Fische</span>
                 </label>
 
                 <label class="flex items-center lg:w-1/2 lg:px-2"">
                     <input type="radio" name="answer" value="4">
-                    <span class="ml-2">♈️ Aries (Ram)</span>
+                    <span class="ml-2">♈️ Widder</span>
                 </label>
 
                 <label class="flex items-center lg:w-1/2 lg:px-2"">
                     <input type="radio" name="answer" value="5">
-                    <span class="ml-2">♉️ Taurus (Bull)</span>
+                    <span class="ml-2">♉️ Stier</span>
                 </label>
 
                 <label class="flex items-center lg:w-1/2 lg:px-2"">
                     <input type="radio" name="answer" value="6">
-                    <span class="ml-2">♊️ Gemini (Twins)</span>
+                    <span class="ml-2">♊️ Zwillinge</span>
                 </label>
 
                 <label class="flex items-center lg:w-1/2 lg:px-2"">
                     <input type="radio" name="answer" value="7">
-                    <span class="ml-2">♋️ Cancer (Crab)</span>
+                    <span class="ml-2">♋️ Krebs</span>
                 </label>
 
                 <label class="flex items-center lg:w-1/2 lg:px-2"">
                     <input type="radio" name="answer" value="8">
-                    <span class="ml-2">♌️ Leo (Lion)</span>
+                    <span class="ml-2">♌️ Löwe</span>
                 </label>
 
                 <label class="flex items-center lg:w-1/2 lg:px-2"">
                     <input type="radio" name="answer" value="9">
-                    <span class="ml-2">♍️ Virgo (Virgin)</span>
+                    <span class="ml-2">♍️ Jungfrau</span>
                 </label>
 
                 <label class="flex items-center lg:w-1/2 lg:px-2"">
                     <input type="radio" name="answer" value="10">
-                    <span class="ml-2">♎️ Libra (Scales)</span>
+                    <span class="ml-2">♎️ Waage</span>
                 </label>
 
                 <label class="flex items-center lg:w-1/2 lg:px-2"">
                     <input type="radio" name="answer" value="11">
-                    <span class="ml-2">♏️ Scorpio (Scorpion)</span>
+                    <span class="ml-2">♏️ Skorpion</span>
                 </label>
 
                 <label class="flex items-center lg:w-1/2 lg:px-2"">
                     <input type="radio" name="answer" value="12">
-                    <span class="ml-2">♐️ Sagittarius (Archer)</span>
+                    <span class="ml-2">♐️ Schütze</span>
                 </label>
               </div>
             </fieldset>
             <button type ="button" id="showResult" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded mt-4">
-                Check
+                Richtig?
               </button>
-              <p id="errorMsg" class="hidden text-red-500">Please choose one</p>
+              <p id="errorMsg" class="hidden text-red-500">Bitte eins auswählen.</p>
           </form>
         </section>
       </main>
 
       <div id="popupOverlay" class="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
         <div id="popupContent" class="text-white p-8 rounded-lg shadow-lg">
-          <h2 id="popupTitle" class="text-2xl font-bold mb-4">You are right!</h2>
+          <h2 id="popupTitle" class="text-2xl font-bold mb-4">Du liegst richtig!</h2>
           <p id="popupContentReal">Zodiaxxx</p>
           <button id="newQuestion" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded mt-4 border border-white">
-            New Question
+            Neue Frage
           </button>
         </div>
       </div>
@@ -131,74 +131,74 @@
 
     const zodiacs = {
       1: {
-        name: '♑️ Capricorn (Goat)',
-        nameSimple: 'Capricorn',
+        name: '♑️ Steinbock',
+        nameSimple: 'Steinbock',
         start: 355,
         end: 18,
       },
       2: {
-        name: '♒️ Aquarius (Water bearer)',
-        nameSimple: 'Aquarius',
+        name: '♒️ Wassermann',
+        nameSimple: 'Wassermann',
         start: 19,
         end: 48,
       },
       3: {
-        name: '♓️ Pisces (Fishes)',
-        nameSimple: 'Pisces',
+        name: '♓️ Fische',
+        nameSimple: 'Fische',
         start: 49,
         end: 78,
       },
       4: {
-        name: '♈️ Aries (Ram)',
-        nameSimple: 'Aries',
+        name: '♈️ Widder',
+        nameSimple: 'Widder',
         start: 79,
         end: 108,
       },
       5: {
-        name: '♉️ Taurus (Bull)',
-        nameSimple: 'Taurus',
+        name: '♉️ Stier',
+        nameSimple: 'Stier',
         start: 109,
         end: 139,
       },
       6: {
-        name: '♊️ Gemini (Twins)',
-        nameSimple: 'Gemini',
+        name: '♊️ Zwillinge',
+        nameSimple: 'Zwillinge',
         start: 140,
         end: 170,
       },
       7: {
-        name: '♋️ Cancer (Crab)',
-        nameSimple: 'Cancer',
+        name: '♋️ Krebs',
+        nameSimple: 'Krebs',
         start: 171,
         end: 202,
       },
       8: {
-        name: '♌️ Leo (Lion)',
-        nameSimple: 'Leo',
+        name: '♌️ Löwe',
+        nameSimple: 'Löwe',
         start: 203,
         end: 233,
       },
       9: {
-        name: '♍️ Virgo (Virgin)',
-        nameSimple: 'Virgo',
+        name: '♍️ Jungfrau',
+        nameSimple: 'Jungfrau',
         start: 234,
         end: 264,
       },
       10: {
-        name: '♎️ Libra (Scales)',
-        nameSimple: 'Libra',
+        name: '♎️ Waage',
+        nameSimple: 'Waage',
         start: 265,
         end: 294,
       },
       11: {
-        name: '♏️ Scorpio (Scorpion)',
-        nameSimple: 'Scorpio',
+        name: '♏️ Skorpion',
+        nameSimple: 'Skorpion',
         start: 295,
         end: 324,
       },
       12: {
-        name: '♐️ Sagittarius (Archer)',
-        nameSimple: 'Sagittarius',
+        name: '♐️ Schütze',
+        nameSimple: 'Schütze',
         start: 325,
         end: 354,
       }
@@ -221,11 +221,11 @@
       $('input[type="radio"][name="answer"]').prop("checked", false); //uncheck the form
 
       if (selectedValue == correctZodiac) {
-        $('#popupTitle').html("You are right!");
+        $('#popupTitle').html("Du liegst richtig!");
         $('#popupContent').addClass('bg-green-500');
         $('#popupContent').removeClass('bg-red-500');
       } else {
-        $('#popupTitle').html("You are wrong!");
+        $('#popupTitle').html("Du liegst falsch!");
         $('#popupContent').removeClass('bg-green-500');
         $('#popupContent').addClass('bg-red-500');
         $('#popupContent')
@@ -234,7 +234,7 @@
       const choosenZodiacStart = outputDate(zodiacs[selectedValue].start);
       const choosenZodiacEnd = outputDate(zodiacs[selectedValue].end);
 
-      $('#popupContentReal').html(`${choosenZodiac} is between ${choosenZodiacStart} and ${choosenZodiacEnd}.`);
+      $('#popupContentReal').html(`${choosenZodiac} ist zwischen ${choosenZodiacStart} und ${choosenZodiacEnd}.`);
       $('#popupOverlay').removeClass('hidden');
       $('#errorMsg').addClass('hidden');
     }
@@ -282,17 +282,11 @@
 
       // Get the day and month from the generated date
       const day_ = generatedDate.getDate();
-      const month = generatedDate.toLocaleString('en-US', { month: 'long' });
-      return `${month}, ${day_}${getOrdinalSuffix(day)}`;
+      const month = generatedDate.toLocaleString('de-DE', { month: 'long' });
+      return `${day_}. ${month}`;
       
     }
 
-    // Function to get the ordinal suffix (e.g., 1st, 2nd, 3rd, 4th, etc.)
-    function getOrdinalSuffix(number) {
-      const suffixes = ["th", "st", "nd", "rd"];
-      const relevantDigits = (number % 100 > 10 && number % 100 < 20) ? 0 : number % 10;
-      return (relevantDigits > 3) ? suffixes[0] : suffixes[relevantDigits];
-    }
   </script>
 
 </html>
