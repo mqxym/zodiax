@@ -220,21 +220,26 @@
       const selectedValue = $('input[type="radio"][name="answer"]:checked').val(); //get the form value
       $('input[type="radio"][name="answer"]').prop("checked", false); //uncheck the form
 
+
+      const choosenZodiac = zodiacs[selectedValue].nameSimple;
+      const choosenZodiacStart = outputDate(zodiacs[selectedValue].start);
+      const choosenZodiacEnd = outputDate(zodiacs[selectedValue].end);
+      const correctZodiacName = zodiacs[correctZodiac].nameSimple;
+
       if (selectedValue == correctZodiac) {
         $('#popupTitle').html("You are right!");
+        $('#popupContentReal').html(`${choosenZodiac} is between ${choosenZodiacStart} and ${choosenZodiacEnd}.`);
         $('#popupContent').addClass('bg-green-500');
         $('#popupContent').removeClass('bg-red-500');
       } else {
         $('#popupTitle').html("You are wrong!");
+        $('#popupContentReal').html(`<b>${correctZodiacName}</b> is the right one. <br> ${choosenZodiac} is between ${choosenZodiacStart} and ${choosenZodiacEnd}.`);
         $('#popupContent').removeClass('bg-green-500');
         $('#popupContent').addClass('bg-red-500');
         $('#popupContent')
       }
-      const choosenZodiac = zodiacs[selectedValue].nameSimple;
-      const choosenZodiacStart = outputDate(zodiacs[selectedValue].start);
-      const choosenZodiacEnd = outputDate(zodiacs[selectedValue].end);
 
-      $('#popupContentReal').html(`${choosenZodiac} is between ${choosenZodiacStart} and ${choosenZodiacEnd}.`);
+      
       $('#popupOverlay').removeClass('hidden');
       $('#errorMsg').addClass('hidden');
     }
