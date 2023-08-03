@@ -106,7 +106,10 @@
 
       <div id="popupOverlay" class="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
         <div id="popupContent" class="text-white p-8 rounded-lg shadow-lg">
-          <h2 id="popupTitle" class="text-2xl font-bold mb-4">Du liegst richtig!</h2>
+          <div class="flex items-center justify-between mb-4">
+            <h2 id="popupTitle" class="text-2xl font-bold">Du liegst richtig!</h2>
+            <p id="correctAnswers" class="text-sm font-semibold text-gray-300">0/0 korrekt</p>
+          </div>
           <p id="popupContentReal">Zodiaxxx</p>
           <button id="newQuestion" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded mt-4 border border-white">
             Neue Frage
@@ -127,7 +130,8 @@
     $(document).ready(onSiteLoad);
 
     let correctZodiac;
-
+    let correctZodiacsCount = 0;
+    let totalZodiacsCount = 0;
 
     const zodiacs = {
       1: {
@@ -217,6 +221,8 @@
         return;
       }
 
+      totalZodiacsCount++;
+
       const selectedValue = $('input[type="radio"][name="answer"]:checked').val(); //get the form value
       $('input[type="radio"][name="answer"]').prop("checked", false); //uncheck the form
 
@@ -226,17 +232,22 @@
       const correctZodiacName = zodiacs[correctZodiac].nameSimple;
 
       if (selectedValue == correctZodiac) {
+        correctZodiacsCount++;
+
         $('#popupTitle').html("Du liegst richtig!");
         $('#popupContentReal').html(`${choosenZodiac} ist zwischen ${choosenZodiacStart} und ${choosenZodiacEnd}.`);
+        $('#correctAnswers').html(`${correctZodiacsCount}/${totalZodiacsCount} korrekt`);
+
         $('#popupContent').addClass('bg-green-500');
         $('#popupContent').removeClass('bg-red-500');
 
       } else {
         $('#popupTitle').html("Du liegst falsch!");
         $('#popupContentReal').html(`<b>${correctZodiacName}</b> ist das richtige Sternzeichen. <br> ${choosenZodiac} ist zwischen ${choosenZodiacStart} und ${choosenZodiacEnd}.`);
+        $('#correctAnswers').html(`${correctZodiacsCount}/${totalZodiacsCount} korrekt`);
+        
         $('#popupContent').removeClass('bg-green-500');
         $('#popupContent').addClass('bg-red-500');
-        $('#popupContent')
       }
 
 

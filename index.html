@@ -106,7 +106,10 @@
 
       <div id="popupOverlay" class="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
         <div id="popupContent" class="text-white p-8 rounded-lg shadow-lg">
-          <h2 id="popupTitle" class="text-2xl font-bold mb-4">You are right!</h2>
+          <div class="flex items-center justify-between mb-4">
+            <h2 id="popupTitle" class="text-2xl font-bold">You are right!</h2>
+            <p id="correctAnswers" class="text-sm font-semibold text-gray-300">0/0 correct</p>
+          </div>
           <p id="popupContentReal">Zodiaxxx</p>
           <button id="newQuestion" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded mt-4 border border-white">
             New Question
@@ -127,7 +130,8 @@
     $(document).ready(onSiteLoad);
 
     let correctZodiac;
-
+    let correctZodiacsCount = 0;
+    let totalZodiacsCount = 0;
 
     const zodiacs = {
       1: {
@@ -220,6 +224,7 @@
       const selectedValue = $('input[type="radio"][name="answer"]:checked').val(); //get the form value
       $('input[type="radio"][name="answer"]').prop("checked", false); //uncheck the form
 
+      totalZodiacsCount++;
 
       const choosenZodiac = zodiacs[selectedValue].nameSimple;
       const choosenZodiacStart = outputDate(zodiacs[selectedValue].start);
@@ -227,16 +232,20 @@
       const correctZodiacName = zodiacs[correctZodiac].nameSimple;
 
       if (selectedValue == correctZodiac) {
+        correctZodiacsCount++;
         $('#popupTitle').html("You are right!");
         $('#popupContentReal').html(`${choosenZodiac} is between ${choosenZodiacStart} and ${choosenZodiacEnd}.`);
+        $('#correctAnswers').html(`${correctZodiacsCount}/${totalZodiacsCount} correct`);
+
         $('#popupContent').addClass('bg-green-500');
         $('#popupContent').removeClass('bg-red-500');
       } else {
         $('#popupTitle').html("You are wrong!");
         $('#popupContentReal').html(`<b>${correctZodiacName}</b> is the right one. <br> ${choosenZodiac} is between ${choosenZodiacStart} and ${choosenZodiacEnd}.`);
+        $('#correctAnswers').html(`${correctZodiacsCount}/${totalZodiacsCount} correct`);
+        
         $('#popupContent').removeClass('bg-green-500');
         $('#popupContent').addClass('bg-red-500');
-        $('#popupContent')
       }
 
       
@@ -288,15 +297,24 @@
       // Get the day and month from the generated date
       const day_ = generatedDate.getDate();
       const month = generatedDate.toLocaleString('en-US', { month: 'long' });
-      return `${month}, ${day_}${getOrdinalSuffix(day)}`;
+      return `${month}, ${day_}${getOrdinalSuffix(day_)}`;
       
     }
 
     // Function to get the ordinal suffix (e.g., 1st, 2nd, 3rd, 4th, etc.)
-    function getOrdinalSuffix(number) {
-      const suffixes = ["th", "st", "nd", "rd"];
-      const relevantDigits = (number % 100 > 10 && number % 100 < 20) ? 0 : number % 10;
-      return (relevantDigits > 3) ? suffixes[0] : suffixes[relevantDigits];
+    function getOrdinalSuffix(i) {
+      var j = i % 10,
+      k = i % 100;
+      if (j == 1 && k != 11) {
+          return "st";
+      }
+      if (j == 2 && k != 12) {
+          return "nd";
+      }
+      if (j == 3 && k != 13) {
+          return "rd";
+      }
+      return "th";
     }
   </script>
 
