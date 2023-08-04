@@ -21,21 +21,21 @@
     <div class="ml-4 container mx-auto">
       <h1 class="text-white text-4xl font-bold">Welcome to Zodiax!</h1>
     </div>
-    <a href="index_de.html" class="block">
-      <button class="bg-white text-purple-700 font-bold py-2 px-4 rounded mr-4 hover:bg-gray-100">
+    <a href="index_de.html" class="block mr-4">
+      <button class="bg-white text-purple-700 font-bold py-2 px-4 rounded hover:bg-gray-100">
         Deutsch
       </button>
     </a>
   </header>
 
-    <main class="container mx-auto py-8">
+    <main class="container mx-auto py-8 flex-grow">
         <section class="bg-white rounded-lg shadow-lg p-6">
           <form>
             <fieldset class="mt-4">
               <legend class="text-xl font-bold mb-6">Question: What zodiac sign is on <u id="date">February, 14th</u>?</legend>
     
-              <div class="lg:flex lg:flex-wrap lg:-mx-2 space-y-4">
-                <label class="flex items-center lg:w-1/2 lg:px-2"">
+              <div class="lg:flex lg:flex-wrap lg:-mx-2 space-y-4" id="answers">
+                <label class="flex items-center lg:w-1/2 lg:px-2">
                   <input type="radio" name="answer" value="1">
                   <span class="ml-2">♑️ Capricorn (Goat)</span>
                 </label>
@@ -98,10 +98,14 @@
             </fieldset>
             <button type ="button" id="showResult" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded mt-4">
                 Check
-              </button>
-              <p id="errorMsg" class="hidden text-red-500">Please choose one</p>
+            </button>
+            <p id="errorMsg" class="hidden text-red-500">Please choose one</p>
+            <label class="flex items-center">
+              <input type="checkbox" class="form-checkbox mr-2" id="shuffle">
+              <span>Shuffle Answers</span>
+            </label>
           </form>
-        </section>
+        </section> 
       </main>
 
       <div id="popupOverlay" class="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
@@ -113,12 +117,12 @@
           <p id="popupContentReal">Zodiaxxx</p>
           <button id="newQuestion" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded mt-4 border border-white">
             New Question
-          </button>
+          </button>        
         </div>
       </div>
       
 
-    <footer class="bg-gray-300 py-4 flex-grow">
+    <footer class="bg-gray-300 py-4">
         <div class="container mx-auto text-center">
           <p class="text-gray-600">© 2023 Zodiax. All rights reserved.</p>
         </div>
@@ -132,6 +136,7 @@
     let correctZodiac;
     let correctZodiacsCount = 0;
     let totalZodiacsCount = 0;
+    let doShuffle = false;
 
     const zodiacs = {
       1: {
@@ -212,6 +217,7 @@
         generateDate();
         $('#showResult').on('click', showResult);
         $('#newQuestion').on('click', newQuestion);
+        $('#shuffle').on('change', shuffleAnswers);
     }
 
     function showResult () {
@@ -254,6 +260,7 @@
     }
 
     function newQuestion () {
+      shuffleAnswers();
       $('#popupOverlay').addClass('hidden');
       generateDate();
       $("html, body").animate({ scrollTop: 0 }, "slow");
@@ -315,6 +322,30 @@
           return "rd";
       }
       return "th";
+    }
+
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function shuffleAnswers() {
+      if($('#shuffle').prop('checked')) {
+        const answersContainer = $("#answers");
+        const answerLabels = answersContainer.find(".flex");
+        const answersArray = Array.from(answerLabels);
+
+        const shuffledAnswers = shuffleArray(answersArray);
+
+        answersContainer.empty();
+
+        shuffledAnswers.forEach((answer) => {
+          answersContainer.append(answer);
+        });
+      }
     }
   </script>
 
