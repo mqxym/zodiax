@@ -14,6 +14,14 @@
 
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    .dark {
+      background-color: #1a1a1a; 
+      color: white; 
+    }
+  </style>
+
 </head>
 
 <body class="flex flex-col min-h-screen">
@@ -29,7 +37,7 @@
   </header>
 
     <main class="container mx-auto py-8">
-        <section class="bg-white rounded-lg shadow-lg p-6">
+        <section class="rounded-lg shadow-lg p-6">
           <form>
             <fieldset class="mt-4">
               <legend class="text-xl font-bold mb-6">Frage: Welches Sternzeichen ist am <u id="date">14. Februar</u>?</legend>
@@ -118,7 +126,10 @@
       </div>
       
 
-    <footer class="bg-gray-300 py-4 flex-grow">
+    <footer class="bg-gray-800 py-4 flex-grow">
+      <div class="flex justify-center">
+        <button id="darkModeToggle" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mt-4 mb-4">Hell/Dunkel</button>
+      </div>
         <div class="container mx-auto text-center">
           <p class="text-gray-600">© 2023 Zodiax. All rights reserved.</p>
         </div>
@@ -212,6 +223,19 @@
         generateDate();
         $('#showResult').on('click', showResult);
         $('#newQuestion').on('click', newQuestion);
+        $('#darkModeToggle').on('click', darkModeToggle);
+        setDarkModePreference();
+    }
+
+    function setDarkModePreference() {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        $('html').addClass('dark');
+      }
+    }
+
+    function darkModeToggle () {
+      console.log("Toggle Darkmode");
+      $('html').toggleClass('dark');
     }
 
     function showResult () {
