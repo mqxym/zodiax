@@ -1,4 +1,4 @@
-# Zodiax V 1.0
+# Zodiax V1.0
 
 ## About 
 
@@ -14,4 +14,4 @@ Its available in two languages, try it out here:
 - Simple JavaScript with jQuery
 - Algorithm to calculate the right dates
 - Random sorting
-- Tailwind library for styling
+- TailwindCSS library for styling
