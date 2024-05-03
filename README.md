@@ -1,4 +1,4 @@
-# Zodiax V1.0
+# Zodiax V1.0.0
 
 ## About 
 
@@ -11,7 +11,12 @@ Its available in two languages, try it out here:
 - http://zodiax.mqxym.de/index_de.html (German)
 
 ## Includes
+
 - Simple JavaScript with jQuery
 - Algorithm to calculate the right dates
 - Random sorting
 - TailwindCSS library for styling
+
+## Contribute
+
+Translations to your language are welcome!
