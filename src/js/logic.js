@@ -42,15 +42,15 @@ const messages = {
     wrongTemplate: '<b>${correct}</b> ist das richtige Sternzeichen. <br> ${zodiac} ist zwischen ${start} und ${end}.',
     scoreTemplate: '${correct}/${total} korrekt',
     sortedMode: 'Sortierter Modus',
-    transitionsMode: 'Transitionen lernen',
-    transitionsShuffledMode: 'Transitionen lernen + gemischt',
+    transitionsMode: 'Übergänge lernen',
+    transitionsShuffledMode: 'Übergänge lernen + gemischt',
     shuffledMode: 'Gemischter Modus',
     roundsLabel: 'Runden',
     nextSessionLabel: 'Nächste Sitzung in',
     goalReachedPrompt: 'Du hast dein Sitzungsziel von ${goal} Runden erreicht. Um ${step} Runden erhöhen?',
     sortedHint: 'Sortierter Modus: Zufällige Daten, aber die Antworten bleiben in Sternzeichen-Reihenfolge.',
     transitionsHint: 'Übergänge lernen: Es werden nur der erste und letzte Tag jedes Sternzeichens gefragt.',
-    transitionsShuffledHint: 'Übergänge lernen + gemischt: Es werden nur Transitionstage gefragt und die Antworten werden pro Runde gemischt.',
+    transitionsShuffledHint: 'Übergänge lernen + gemischt: Es werden nur Übergangstage gefragt und die Antworten werden pro Runde gemischt.',
     shuffledHint: 'Gemischter Modus: Zufällige Daten und pro Runde gemischte Antworten.'
   }
 };
