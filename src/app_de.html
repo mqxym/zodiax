@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zodiax - Sternzeichen raten</title>
+  <meta name="description" content="Welches Sternzeichen ist an welchem Datum? Lerne alle Sternzeichen und wann sie vorkommen." />
+  <meta name="keywords" content="Sternzeichen,raten,lernen,vorkommen,datum,wann,spiel" />
+  <meta name="author" content="Marques Xiaomi" />
+  <meta name="copyright" content="Maxim Schulz" />
+  <meta name="page-topic" content="Sternzeichen" />
+  <meta http-equiv="Reply-to" content="maxim@omg.lol" />
+
+  <link href="css/style.css" rel="stylesheet">
+  <script src="js/jquery.js"></script>
+
+</head>
+
+<body class="flex flex-col min-h-screen">
+  <div class="fixed inset-0 -z-10 bg-[radial-gradient(62rem_34rem_at_-10%_-15%,#dfccff_0%,transparent_60%),radial-gradient(58rem_36rem_at_110%_110%,#f4ccff_0%,transparent_62%),linear-gradient(180deg,#f6efff_0%,#faf7ff_60%,#faf7ff_100%)] dark:bg-[radial-gradient(62rem_34rem_at_-10%_-15%,#40206a_0%,transparent_60%),radial-gradient(58rem_36rem_at_110%_110%,#4f1d63_0%,transparent_62%),linear-gradient(180deg,#170f27_0%,#1d1430_60%,#1d1430_100%)]"></div>
+  <div class="fixed inset-0 -z-10">
+    <div class="hero-grid absolute inset-0"></div>
+    <div class="absolute left-[-5rem] top-20 h-56 w-56 rounded-full bg-brand-100/70 blur-3xl float-slower"></div>
+    <div class="absolute right-[-4rem] top-44 h-64 w-64 rounded-full bg-brand-500/20 blur-3xl float-slow"></div>
+  </div>
+
+  <header class="sticky top-0 z-10 border-b border-slate-300/70 bg-white/75 py-4 backdrop-blur-md dark:border-slate-700/70 dark:bg-slate-900/70">
+    <div class="container mx-auto flex items-center justify-between px-4">
+      <a href="/de/sternzeichen-daten-lernen" class="font-serif text-3xl font-bold tracking-[0.02em] text-slate-900 dark:text-slate-100">Zodiax</a>
+      <div class="flex items-center gap-3">
+        <a href="/de/sternzeichen-daten-lernen" class="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-800 shadow-sm transition hover:-translate-y-0.5 hover:bg-brand-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700">Startseite</a>
+        <a href="/de/sternzeichen-lernstatistik" class="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-800 shadow-sm transition hover:-translate-y-0.5 hover:bg-brand-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700">Statistik</a>
+        <a href="/en/zodiac-dates-quiz" class="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-800 shadow-sm transition hover:-translate-y-0.5 hover:bg-brand-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700">English</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mx-auto flex-grow px-4 py-8 animate-rise-in md:py-12">
+    <section class="rounded-3xl border border-slate-300/70 bg-white/80 p-6 shadow-xl backdrop-blur-md dark:border-slate-700 dark:bg-slate-900/70 md:p-8">
+      <div class="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+        <div>
+          <p class="inline-flex items-center rounded-full border border-brand-500/35 bg-white/80 px-3 py-1 text-sm font-semibold text-brand-700 dark:bg-slate-900/75 dark:text-brand-100">T&auml;gliches Sternzeichen-Quiz</p>
+          <h1 class="mt-4 font-serif text-4xl font-bold tracking-[0.02em] text-slate-900 dark:text-slate-100">Errate Das Sternzeichen Nach Datum</h1>
+          <p class="mt-3 max-w-3xl text-slate-700 dark:text-slate-200">Trainiere mit schnellen Runden, sofortigem Feedback und zwei Schwierigkeitsmodi.</p>
+
+          <form class="mt-6">
+            <fieldset>
+              <legend class="mb-4 text-xl font-bold text-slate-900 dark:text-slate-100">Frage: Welches Sternzeichen ist am <u id="date" class="decoration-2 text-brand-700 underline-offset-4 dark:text-brand-100">14. Februar</u>?</legend>
+
+              <div class="grid gap-3 lg:grid-cols-2" id="answers">
+                <label class="flex items-center rounded-xl border border-slate-300/70 bg-white/80 px-3 py-3 transition hover:-translate-y-0.5 hover:border-brand-500/70 hover:bg-brand-50 dark:border-slate-700 dark:bg-slate-900/75 dark:hover:bg-brand-500/10">
+                  <input type="radio" name="answer" value="1">
+                  <span class="ml-2 text-slate-800 dark:text-slate-100">♑️ Steinbock</span>
+                </label>
+
+                <label class="flex items-center rounded-xl border border-slate-300/70 bg-white/80 px-3 py-3 transition hover:-translate-y-0.5 hover:border-brand-500/70 hover:bg-brand-50 dark:border-slate-700 dark:bg-slate-900/75 dark:hover:bg-brand-500/10">
+                  <input type="radio" name="answer" value="2">
+                  <span class="ml-2 text-slate-800 dark:text-slate-100">♒️ Wassermann</span>
+                </label>
+
+                <label class="flex items-center rounded-xl border border-slate-300/70 bg-white/80 px-3 py-3 transition hover:-translate-y-0.5 hover:border-brand-500/70 hover:bg-brand-50 dark:border-slate-700 dark:bg-slate-900/75 dark:hover:bg-brand-500/10">
+                  <input type="radio" name="answer" value="3">
+                  <span class="ml-2 text-slate-800 dark:text-slate-100">♓️ Fische</span>
+                </label>
+
+                <label class="flex items-center rounded-xl border border-slate-300/70 bg-white/80 px-3 py-3 transition hover:-translate-y-0.5 hover:border-brand-500/70 hover:bg-brand-50 dark:border-slate-700 dark:bg-slate-900/75 dark:hover:bg-brand-500/10">
+                  <input type="radio" name="answer" value="4">
+                  <span class="ml-2 text-slate-800 dark:text-slate-100">♈️ Widder</span>
+                </label>
+
+                <label class="flex items-center rounded-xl border border-slate-300/70 bg-white/80 px-3 py-3 transition hover:-translate-y-0.5 hover:border-brand-500/70 hover:bg-brand-50 dark:border-slate-700 dark:bg-slate-900/75 dark:hover:bg-brand-500/10">
+                  <input type="radio" name="answer" value="5">
+                  <span class="ml-2 text-slate-800 dark:text-slate-100">♉️ Stier</span>
+                </label>
+
+                <label class="flex items-center rounded-xl border border-slate-300/70 bg-white/80 px-3 py-3 transition hover:-translate-y-0.5 hover:border-brand-500/70 hover:bg-brand-50 dark:border-slate-700 dark:bg-slate-900/75 dark:hover:bg-brand-500/10">
+                  <input type="radio" name="answer" value="6">
+                  <span class="ml-2 text-slate-800 dark:text-slate-100">♊️ Zwillinge</span>
+                </label>
+
+                <label class="flex items-center rounded-xl border border-slate-300/70 bg-white/80 px-3 py-3 transition hover:-translate-y-0.5 hover:border-brand-500/70 hover:bg-brand-50 dark:border-slate-700 dark:bg-slate-900/75 dark:hover:bg-brand-500/10">
+                  <input type="radio" name="answer" value="7">
+                  <span class="ml-2 text-slate-800 dark:text-slate-100">♋️ Krebs</span>
+                </label>
+
+                <label class="flex items-center rounded-xl border border-slate-300/70 bg-white/80 px-3 py-3 transition hover:-translate-y-0.5 hover:border-brand-500/70 hover:bg-brand-50 dark:border-slate-700 dark:bg-slate-900/75 dark:hover:bg-brand-500/10">
+                  <input type="radio" name="answer" value="8">
+                  <span class="ml-2 text-slate-800 dark:text-slate-100">♌️ L&ouml;we</span>
+                </label>
+
+                <label class="flex items-center rounded-xl border border-slate-300/70 bg-white/80 px-3 py-3 transition hover:-translate-y-0.5 hover:border-brand-500/70 hover:bg-brand-50 dark:border-slate-700 dark:bg-slate-900/75 dark:hover:bg-brand-500/10">
+                  <input type="radio" name="answer" value="9">
+                  <span class="ml-2 text-slate-800 dark:text-slate-100">♍️ Jungfrau</span>
+                </label>
+
+                <label class="flex items-center rounded-xl border border-slate-300/70 bg-white/80 px-3 py-3 transition hover:-translate-y-0.5 hover:border-brand-500/70 hover:bg-brand-50 dark:border-slate-700 dark:bg-slate-900/75 dark:hover:bg-brand-500/10">
+                  <input type="radio" name="answer" value="10">
+                  <span class="ml-2 text-slate-800 dark:text-slate-100">♎️ Waage</span>
+                </label>
+
+                <label class="flex items-center rounded-xl border border-slate-300/70 bg-white/80 px-3 py-3 transition hover:-translate-y-0.5 hover:border-brand-500/70 hover:bg-brand-50 dark:border-slate-700 dark:bg-slate-900/75 dark:hover:bg-brand-500/10">
+                  <input type="radio" name="answer" value="11">
+                  <span class="ml-2 text-slate-800 dark:text-slate-100">♏️ Skorpion</span>
+                </label>
+
+                <label class="flex items-center rounded-xl border border-slate-300/70 bg-white/80 px-3 py-3 transition hover:-translate-y-0.5 hover:border-brand-500/70 hover:bg-brand-50 dark:border-slate-700 dark:bg-slate-900/75 dark:hover:bg-brand-500/10">
+                  <input type="radio" name="answer" value="12">
+                  <span class="ml-2 text-slate-800 dark:text-slate-100">♐️ Sch&uuml;tze</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="mt-4 flex flex-wrap items-center gap-3">
+              <button type="button" id="showResult" class="rounded-xl bg-gradient-to-r from-brand-600 to-brand-500 px-4 py-2 font-bold text-white shadow-lg shadow-brand-600/20 transition hover:-translate-y-0.5 hover:from-brand-700 hover:to-brand-600">Pr&uuml;fen</button>
+              <label for="gameMode" class="inline-flex items-center gap-2 rounded-xl border border-slate-300/80 bg-white px-3 py-2 text-sm font-semibold text-slate-700 dark:border-slate-700 dark:bg-slate-900/75 dark:text-slate-200">
+                <span>Modus</span>
+                <select id="gameMode" class="rounded-lg border border-slate-300 bg-white px-2 py-1 text-sm font-semibold text-slate-800 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100">
+                  <option value="sorted">Sortiert</option>
+                  <option value="transitions">Übergänge lernen</option>
+                  <option value="transitionsShuffled">Übergänge lernen + gemischt</option>
+                  <option value="shuffled">Gemischt</option>
+                </select>
+              </label>
+              <span id="difficultyMode" class="inline-flex items-center rounded-full border border-brand-500/35 bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em] text-brand-700 dark:bg-brand-500/10 dark:text-brand-100">Sortierter Modus</span>
+            </div>
+            <p id="modeHint" class="mt-2 text-sm text-slate-600 dark:text-slate-300">Sortierter Modus: Zuf&auml;llige Daten, aber die Antworten bleiben in Sternzeichen-Reihenfolge.</p>
+            <p id="errorMsg" class="mt-2 hidden font-semibold text-red-500">Bitte w&auml;hle eine Option</p>
+          </form>
+        </div>
+
+        <aside class="space-y-4">
+          <article class="rounded-2xl border border-slate-300/70 bg-white/85 p-5 shadow-md dark:border-slate-700 dark:bg-slate-900/75">
+            <p class="text-xs uppercase tracking-[0.08em] text-slate-500 dark:text-slate-300">Spielstatistik</p>
+            <div class="mt-1 flex items-center justify-between gap-3">
+              <h2 class="font-serif text-2xl font-bold text-slate-900 dark:text-slate-100">Live-Fortschritt</h2>
+              <span id="statModePill" class="inline-flex items-center rounded-full border border-brand-500/35 bg-brand-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-brand-700 dark:bg-brand-500/10 dark:text-brand-100">Sortierter Modus</span>
+            </div>
+
+            <div class="mt-4 grid grid-cols-2 gap-3 text-center">
+              <div class="rounded-xl border border-slate-300/70 bg-white p-3 dark:border-slate-700 dark:bg-slate-900/75">
+                <p class="text-xs uppercase tracking-[0.08em] text-slate-500 dark:text-slate-300">Versuche</p>
+                <p id="statAttempts" class="mt-1 text-xl font-bold text-slate-900 dark:text-slate-100">0</p>
+              </div>
+              <div class="rounded-xl border border-slate-300/70 bg-white p-3 dark:border-slate-700 dark:bg-slate-900/75">
+                <p class="text-xs uppercase tracking-[0.08em] text-slate-500 dark:text-slate-300">Richtig</p>
+                <p id="statCorrect" class="mt-1 text-xl font-bold text-slate-900 dark:text-slate-100">0</p>
+              </div>
+              <div class="rounded-xl border border-slate-300/70 bg-white p-3 dark:border-slate-700 dark:bg-slate-900/75">
+                <p class="text-xs uppercase tracking-[0.08em] text-slate-500 dark:text-slate-300">Trefferquote</p>
+                <p id="statAccuracy" class="mt-1 text-xl font-bold text-slate-900 dark:text-slate-100">0%</p>
+              </div>
+              <div class="relative overflow-hidden rounded-xl border border-slate-300/70 bg-white p-3 dark:border-slate-700 dark:bg-slate-900/75">
+                <span class="pulse-ring absolute inset-0 rounded-xl border border-brand-600/40"></span>
+                <p class="text-xs uppercase tracking-[0.08em] text-slate-500 dark:text-slate-300">Beste Serie</p>
+                <p id="statBestStreak" class="mt-1 text-xl font-bold text-slate-900 dark:text-slate-100">0</p>
+              </div>
+            </div>
+
+            <div class="mt-4 rounded-xl border border-slate-300/70 bg-white p-3 dark:border-slate-700 dark:bg-slate-900/75">
+              <div class="flex items-center justify-between text-sm">
+                <p class="font-semibold text-slate-700 dark:text-slate-200">Aktuelle Serie</p>
+                <p id="statCurrentStreak" class="font-bold text-slate-900 dark:text-slate-100">0</p>
+              </div>
+              <div class="mt-3">
+                <label for="statProgress" class="text-xs uppercase tracking-[0.08em] text-slate-500 dark:text-slate-300">Sitzungsziel</label>
+                <progress id="statProgress" max="50" value="0" class="mt-2 h-2 w-full overflow-hidden rounded-full"></progress>
+                <p id="statProgressText" class="mt-2 text-sm text-slate-600 dark:text-slate-300">0 / 50 Runden</p>
+                <p id="nextSessionCountdown" class="mt-1 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500 dark:text-slate-300">Nächste Sitzung in: 00:00:00</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="rounded-2xl border border-slate-300/70 bg-white/85 p-5 shadow-md dark:border-slate-700 dark:bg-slate-900/75">
+            <p class="text-xs uppercase tracking-[0.08em] text-slate-500 dark:text-slate-300">Spielumfang</p>
+            <h2 class="mt-1 text-lg font-bold text-slate-900 dark:text-slate-100">Highlights</h2>
+            <div class="mt-3 grid gap-2 text-sm text-slate-700 dark:text-slate-200">
+              <div class="rounded-xl border border-slate-300/70 bg-white px-3 py-2 dark:border-slate-700 dark:bg-slate-900/75">Sternzeichen-Quiz: Schnelle Merk-Runden</div>
+              <div class="rounded-xl border border-slate-300/70 bg-white px-3 py-2 dark:border-slate-700 dark:bg-slate-900/75">Kalender-Training: Datumsgrenzen lernen</div>
+              <div class="rounded-xl border border-slate-300/70 bg-white px-3 py-2 dark:border-slate-700 dark:bg-slate-900/75">Zuordnungsmodus: Datum zu Sternzeichen</div>
+              <div class="rounded-xl border border-slate-300/70 bg-white px-3 py-2 dark:border-slate-700 dark:bg-slate-900/75">Trainer-Loop: Frage, Feedback, neue Runde</div>
+            </div>
+          </article>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div id="popupOverlay" class="fixed left-0 top-0 z-20 hidden flex h-full w-full items-center justify-center bg-slate-950/55 p-4 backdrop-blur-[2px]">
+    <div id="popupContent" class="w-full max-w-xl rounded-2xl border border-white/20 bg-slate-900/90 p-8 text-white shadow-2xl animate-pop-in">
+      <div class="mb-4 flex items-center justify-between">
+        <h2 id="popupTitle" class="font-serif text-2xl font-bold">Du liegst richtig!</h2>
+        <p id="correctAnswers" class="text-sm font-semibold text-gray-300">0/0 korrekt</p>
+      </div>
+      <p id="popupContentReal">Zodiaxxx</p>
+      <button id="newQuestion" class="mt-4 rounded-xl border border-white/70 bg-gradient-to-r from-brand-600 to-brand-500 px-4 py-2 font-bold text-white transition hover:-translate-y-0.5 hover:from-brand-700 hover:to-brand-600">Neue Frage</button>
+    </div>
+  </div>
+
+  <footer class="border-t border-slate-300/70 bg-white/70 py-4 backdrop-blur-md dark:border-slate-700 dark:bg-slate-900/65">
+    <div class="flex justify-center">
+    </div>
+    <div class="container mx-auto text-center">
+      <p class="text-gray-600 dark:text-slate-300">© <span id="year">2026</span> Zodiax. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+
+<script src="js/statistics-service.js"></script>
+<script src="js/logic.js"></script>
+
+</html>

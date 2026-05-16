@@ -1,6 +1,6 @@
-MIT License
+# Zodiax Public Use License
 
-Copyright (c) 2023 mqxym
+Copyright (c) 2026 mqxym
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,16 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+Additional Restrictions:
+
+You may not host, deploy, or otherwise make publicly accessible an instance of
+this Software that substantially replicates the appearance, or branding of the
+original website provided by the author without express written permission.
+This includes, but is not limited to, hosting an identical or near-identical
+version of the website under a different domain or service, for public use or access.
+
+This restriction does not limit private or local use, personal modifications,
+or reuse of code for different purposes or projects.

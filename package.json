@@ -1,0 +1,13 @@
+{
+  "name": "zodiax",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./tailwind.css -o ./src/css/style.css --minify",
+    "watch:css": "tailwindcss -i ./tailwind.css -o ./src/css/style.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.8",
+    "tailwindcss": "^4.1.8"
+  }
+}

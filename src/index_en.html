@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Zodiac Sign Quiz Game - Learn & Practice Zodiac Dates Fast</title>
+  <meta name="description"
+    content="Test your astrology knowledge with a fun zodiac sign quiz game. Practice zodiac date ranges, birthdays, and horoscope signs online for free.">
+  <meta name="keywords"
+    content="zodiac sign quiz, zodiac signs quiz game, astrology quiz, zodiac date quiz, zodiac sign dates, zodiac signs dates quiz, horoscope quiz, learn zodiac signs, zodiac calendar quiz, zodiac season quiz, zodiac sign practice game, astrology learning game, zodiac trivia game, zodiac memory game, zodiac challenge quiz, quiz to learn zodiac sign dates, practice zodiac sign date ranges, what zodiac sign is this date quiz, zodiac sign birthday quiz, astrology date guessing game, zodiac sign timeline game, learn horoscope dates fast, interactive zodiac sign quiz, zodiac signs by month quiz, zodiac signs by birthday quiz, memorize zodiac sign dates, zodiac sign matching game, fun astrology quiz online, free zodiac sign quiz game, daily zodiac practice quiz, how to remember zodiac signs, learn astrology basics, zodiac sign study tool, astrology practice exercises, beginner zodiac quiz, fun zodiac game, astrology trivia, zodiac brain game, horoscope guessing game, zodiac challenge online, what zodiac sign is march 21, how to memorize zodiac signs, when do zodiac signs start, when do zodiac signs change, what are the zodiac date ranges, astrology, horoscope, star signs, zodiac wheel, birth signs, sun signs, astrological signs, zodiac birthdays, constellation signs, astrology game, zodiac app, horoscope game, zodiac trainer, zodiac flashcards, zodiac learning app, zodiac test, zodiac exam game">
+  <meta name="author" content="Zodiax">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#f6efff">
+  <meta name="color-scheme" content="light dark">
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+      const applyTheme = () => {
+        root.classList.toggle('dark', media.matches);
+      };
+
+      applyTheme();
+      media.addEventListener?.('change', applyTheme);
+    })();
+  </script>
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Zodiac Sign Quiz Game – Learn & Practice Zodiac Dates Fast">
+  <meta property="og:description"
+    content="Train your memory with an interactive zodiac signs quiz game. Learn zodiac sign dates through short, playful practice rounds.">
+  <meta property="og:site_name" content="Zodiax">
+  <meta property="og:url" content="/en/zodiac-sign-dates-guide">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Zodiac Sign Quiz Game – Learn & Practice Zodiac Dates Fast">
+  <meta name="twitter:description"
+    content="A modern astrology learning game to practice zodiac date ranges, birthdays, and horoscope signs.">
+
+  <link rel="canonical" href="/en/zodiac-sign-dates-guide">
+  <link href="css/style.css" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Zodiax",
+        "url": "/en/zodiac-sign-dates-guide",
+        "description": "An interactive zodiac sign quiz game for learning zodiac sign dates.",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Zodiax",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Web",
+        "description": "Zodiax is a zodiac memory game and astrology learning game that helps users memorize zodiac sign dates through active recall.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "When do zodiac signs start?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Zodiac signs start and change on specific dates throughout the year. Zodiax helps you practice each boundary date until recall is automatic."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What zodiac sign is March 21?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "March 21 is typically Aries in tropical astrology. Zodiax includes a zodiac sign birthday quiz to drill these transition dates."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How to memorize zodiac signs quickly?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use repeated short quizzes, immediate feedback, and date-range matching. Zodiax combines these memory techniques in a fun zodiac game."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="min-h-screen bg-[radial-gradient(62rem_34rem_at_-10%_-15%,#dfccff_0%,transparent_60%),radial-gradient(58rem_36rem_at_110%_110%,#f4ccff_0%,transparent_62%),linear-gradient(180deg,#f6efff_0%,#faf7ff_60%,#faf7ff_100%)] text-slate-900 dark:bg-[radial-gradient(62rem_34rem_at_-10%_-15%,#2b1f44_0%,transparent_60%),radial-gradient(58rem_36rem_at_110%_110%,#2f1a40_0%,transparent_62%),linear-gradient(180deg,#111423_0%,#161a2c_60%,#121625_100%)] dark:text-slate-100">
+  <div class="fixed inset-0 -z-10">
+    <div class="hero-grid absolute inset-0"></div>
+    <div class="absolute left-[-5rem] top-20 h-56 w-56 rounded-full bg-brand-100/70 dark:bg-brand-600/20 blur-3xl float-slower"></div>
+    <div class="absolute right-[-4rem] top-44 h-64 w-64 rounded-full bg-brand-500/20 dark:bg-brand-700/25 blur-3xl float-slow"></div>
+  </div>
+
+  <header class="sticky top-0 z-20 border-b border-slate-300 dark:border-slate-600/70 bg-white/75 dark:bg-slate-900/70 backdrop-blur-md">
+    <div class="container mx-auto flex items-center justify-between px-4 py-4">
+      <a href="/en/zodiac-sign-dates-guide" class="text-2xl font-bold font-serif tracking-[0.02em]">Zodiax</a>
+      <nav aria-label="Main navigation" class="hidden gap-5 text-sm font-semibold text-slate-700 dark:text-slate-200 md:flex">
+        <a href="#how-it-works" class="transition hover:text-brand-700">How It Works</a>
+        <a href="#dates" class="transition hover:text-brand-700">Zodiac Dates</a>
+        <a href="#faq" class="transition hover:text-brand-700">FAQ</a>
+      </nav>
+      <a href="/en/zodiac-dates-quiz"
+        class="rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-2 font-bold text-slate-800 dark:text-slate-100 shadow-sm transition hover:-translate-y-0.5 hover:bg-brand-50">Play
+        Quiz</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="container mx-auto px-4 pb-12 pt-12 md:pb-16 md:pt-16">
+      <div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+        <div class="reveal active">
+          <p class="inline-flex items-center rounded-full border border-brand-500/35 bg-white dark:bg-slate-800/80 px-3 py-1 text-sm font-semibold text-brand-700 dark:text-brand-100">
+            Interactive zodiac sign quiz game
+          </p>
+          <h1 class="mt-5 font-serif text-4xl font-bold leading-tight md:text-6xl">Master Zodiac Sign Dates</h1>
+          <p class="mt-5 max-w-2xl text-lg text-slate-700 dark:text-slate-200">
+            Zodiax is a modern zodiac app built as an astrology quiz and zodiac memory game. It helps you learn zodiac signs,
+            practice zodiac sign date ranges, and remember every horoscope transition with confidence.
+          </p>
+
+          <div class="mt-6 flex flex-wrap gap-3 text-sm">
+            <span class="rounded-full border border-slate-300 dark:border-slate-600/80 bg-white dark:bg-slate-800/85 px-3 py-2">zodiac date quiz</span>
+            <span class="rounded-full border border-slate-300 dark:border-slate-600/80 bg-white dark:bg-slate-800/85 px-3 py-2">interactive zodiac sign quiz</span>
+            <span class="rounded-full border border-slate-300 dark:border-slate-600/80 bg-white dark:bg-slate-800/85 px-3 py-2">astrology learning game</span>
+            <span class="rounded-full border border-slate-300 dark:border-slate-600/80 bg-white dark:bg-slate-800/85 px-3 py-2">zodiac challenge online</span>
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="/en/zodiac-dates-quiz"
+              class="rounded-xl bg-gradient-to-r from-brand-600 to-brand-500 px-6 py-3 font-bold text-white shadow-lg shadow-brand-600/20 transition hover:-translate-y-0.5 hover:from-brand-700 hover:to-brand-600">
+              Start Free Zodiac Quiz
+            </a>
+            <a href="#how-it-works"
+              class="rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-6 py-3 font-bold text-slate-800 dark:text-slate-100 transition hover:-translate-y-0.5 hover:bg-brand-50">
+              See the Learning Method
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal rounded-3xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800/80 p-6 shadow-xl backdrop-blur-md">
+          <p class="text-sm font-semibold uppercase tracking-[0.1em] text-slate-600 dark:text-slate-300">Daily Zodiac Practice Quiz</p>
+          <h2 class="mt-2 text-2xl font-bold font-serif">The Ultimate Zodiac Quiz Game</h2>
+
+          <div class="mt-5 rounded-2xl border border-slate-300 dark:border-slate-600/70 bg-slate-100/65 p-4">
+            <p class="text-sm text-slate-600 dark:text-slate-300">Prompt</p>
+            <p class="mt-1 text-lg font-semibold">What zodiac sign is this date quiz: April 24?</p>
+          </div>
+
+          <div class="mt-4 grid gap-3">
+            <button class="rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-3 text-left font-semibold shadow-sm">Aries</button>
+            <button class="rounded-xl border border-brand-600 bg-brand-50 px-4 py-3 text-left font-semibold text-brand-700 shadow-sm">Taurus</button>
+            <button class="rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-3 text-left font-semibold shadow-sm">Gemini</button>
+          </div>
+
+          <div class="mt-5 grid grid-cols-3 gap-3 text-center">
+            <div class="rounded-xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800 p-3">
+              <p class="text-xs uppercase tracking-[0.08em] text-slate-500">Speed</p>
+              <p class="mt-1 text-xl font-bold">1m</p>
+            </div>
+            <div class="rounded-xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800 p-3">
+              <p class="text-xs uppercase tracking-[0.08em] text-slate-500">Streak</p>
+              <p class="mt-1 text-xl font-bold">14</p>
+            </div>
+            <div class="rounded-xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800 p-3 relative overflow-hidden">
+              <span class="pulse-ring absolute inset-0 rounded-xl border border-brand-600/40"></span>
+              <p class="text-xs uppercase tracking-[0.08em] text-slate-500">Score</p>
+              <p class="mt-1 text-xl font-bold">92%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container mx-auto px-4 pb-6">
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="reveal rounded-2xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800/80 p-4 shadow-md">
+          <p class="text-xs uppercase tracking-[0.08em] text-slate-500">Mode</p>
+          <h3 class="mt-1 text-lg font-bold">Zodiac Trivia Game</h3>
+          <p class="mt-2 text-slate-700 dark:text-slate-200">Fast rounds for astrology trivia and horoscope guessing game practice.</p>
+        </article>
+        <article class="reveal rounded-2xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800/80 p-4 shadow-md">
+          <p class="text-xs uppercase tracking-[0.08em] text-slate-500">Mode</p>
+          <h3 class="mt-1 text-lg font-bold">Zodiac Calendar Quiz</h3>
+          <p class="mt-2 text-slate-700 dark:text-slate-200">Drill zodiac signs by month quiz and zodiac signs by birthday quiz patterns.</p>
+        </article>
+        <article class="reveal rounded-2xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800/80 p-4 shadow-md">
+          <p class="text-xs uppercase tracking-[0.08em] text-slate-500">Mode</p>
+          <h3 class="mt-1 text-lg font-bold">Zodiac Matching Game</h3>
+          <p class="mt-2 text-slate-700 dark:text-slate-200">Pair dates and signs quickly in a structured zodiac sign timeline game.</p>
+        </article>
+        <article class="reveal rounded-2xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800/80 p-4 shadow-md">
+          <p class="text-xs uppercase tracking-[0.08em] text-slate-500">Mode</p>
+          <h3 class="mt-1 text-lg font-bold">Zodiac Trainer</h3>
+          <p class="mt-2 text-slate-700 dark:text-slate-200">A beginner zodiac quiz and zodiac sign study tool in one workflow.</p>
+        </article>
+      </div>
+
+      <div class="reveal mt-5 rounded-2xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800/85 p-5 shadow-md">
+        <p class="text-xs uppercase tracking-[0.08em] text-slate-500">Difficulty Levels</p>
+        <h3 class="mt-1 text-xl font-bold">Choose Your Challenge: Sorted Or Shuffled Answers</h3>
+        <p class="mt-2 text-slate-700 dark:text-slate-200">
+          Start with <strong>sorted answers</strong> for guided learning, then switch to <strong>shuffled answers</strong> for harder recall.
+          This two-level system makes the zodiac signs quiz game easier to learn first and more challenging when you are ready.
+        </p>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="container mx-auto px-4 py-12 md:py-16">
+      <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+        <div class="reveal">
+          <h2 class="font-serif text-3xl font-bold md:text-4xl">Learn Zodiac Signs Through Play</h2>
+          <p class="mt-4 text-slate-700 dark:text-slate-200">
+            Zodiax uses evidence-based memory loops: active recall, immediate feedback, and spaced repetition. That is why this
+            zodiac sign practice game helps you memorize zodiac sign dates faster than passive reading.
+          </p>
+          <p class="mt-4 text-slate-700 dark:text-slate-200">
+            Instead of showing answers first, the app asks date prompts like "what zodiac sign is March 21" and "when do zodiac signs
+            change" in short cycles. Your brain strengthens retrieval with every round.
+          </p>
+          <p class="mt-4 text-slate-700 dark:text-slate-200">
+            You can train with two difficulty levels: <strong>sorted answers</strong> for beginner practice and <strong>shuffled answers</strong>
+            for advanced zodiac challenge quiz sessions.
+          </p>
+        </div>
+
+        <div class="reveal rounded-3xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800/80 p-6 shadow-xl">
+          <div class="relative pl-8">
+            <div class="timeline-line absolute left-3 top-1 h-[88%] w-1 rounded-full"></div>
+            <div class="relative mb-6">
+              <span class="absolute -left-8 top-1 h-5 w-5 rounded-full bg-brand-600 ring-4 ring-brand-100"></span>
+              <h3 class="text-lg font-bold">1. Challenge</h3>
+              <p class="mt-1 text-slate-700 dark:text-slate-200">Answer a zodiac date quiz prompt before seeing options.</p>
+            </div>
+            <div class="relative mb-6">
+              <span class="absolute -left-8 top-1 h-5 w-5 rounded-full bg-brand-600 ring-4 ring-brand-100"></span>
+              <h3 class="text-lg font-bold">2. Feedback</h3>
+              <p class="mt-1 text-slate-700 dark:text-slate-200">Get instant correctness feedback and mnemonic hints.</p>
+            </div>
+            <div class="relative mb-6">
+              <span class="absolute -left-8 top-1 h-5 w-5 rounded-full bg-brand-600 ring-4 ring-brand-100"></span>
+              <h3 class="text-lg font-bold">3. Repeat</h3>
+              <p class="mt-1 text-slate-700 dark:text-slate-200">Revisit weak dates in your astrology practice exercises queue.</p>
+            </div>
+            <div class="relative">
+              <span class="absolute -left-8 top-1 h-5 w-5 rounded-full bg-brand-600 ring-4 ring-brand-100"></span>
+              <h3 class="text-lg font-bold">4. Retain</h3>
+              <p class="mt-1 text-slate-700 dark:text-slate-200">Turn uncertainty into fast recall with daily zodiac practice quiz rounds.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="dates" class="container mx-auto px-4 pb-8">
+      <div class="rounded-3xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800/80 p-6 shadow-xl md:p-8">
+        <h2 class="font-serif text-3xl font-bold md:text-4xl">Practice Zodiac Dates in Minutes</h2>
+        <p class="mt-3 max-w-3xl text-slate-700 dark:text-slate-200">
+          Use this zodiac birthdays reference as your warmup, then jump into the zodiac signs dates quiz. The game is built to help
+          you answer what are the zodiac date ranges without hesitation.
+        </p>
+
+        <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <article class="reveal rounded-2xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800 p-4">
+            <h3 class="font-bold">Aries</h3>
+            <p class="mt-1 text-slate-700 dark:text-slate-200">Mar 21 - Apr 19</p>
+          </article>
+          <article class="reveal rounded-2xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800 p-4">
+            <h3 class="font-bold">Taurus</h3>
+            <p class="mt-1 text-slate-700 dark:text-slate-200">Apr 20 - May 20</p>
+          </article>
+          <article class="reveal rounded-2xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800 p-4">
+            <h3 class="font-bold">Gemini</h3>
+            <p class="mt-1 text-slate-700 dark:text-slate-200">May 21 - Jun 20</p>
+          </article>
+          <article class="reveal rounded-2xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800 p-4">
+            <h3 class="font-bold">Cancer</h3>
+            <p class="mt-1 text-slate-700 dark:text-slate-200">Jun 21 - Jul 22</p>
+          </article>
+          <article class="reveal rounded-2xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800 p-4">
+            <h3 class="font-bold">Leo</h3>
+            <p class="mt-1 text-slate-700 dark:text-slate-200">Jul 23 - Aug 22</p>
+          </article>
+          <article class="reveal rounded-2xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800 p-4">
+            <h3 class="font-bold">Virgo</h3>
+            <p class="mt-1 text-slate-700 dark:text-slate-200">Aug 23 - Sep 22</p>
+          </article>
+          <article class="reveal rounded-2xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800 p-4">
+            <h3 class="font-bold">Libra</h3>
+            <p class="mt-1 text-slate-700 dark:text-slate-200">Sep 23 - Oct 22</p>
+          </article>
+          <article class="reveal rounded-2xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800 p-4">
+            <h3 class="font-bold">Scorpio</h3>
+            <p class="mt-1 text-slate-700 dark:text-slate-200">Oct 23 - Nov 21</p>
+          </article>
+          <article class="reveal rounded-2xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800 p-4">
+            <h3 class="font-bold">Sagittarius</h3>
+            <p class="mt-1 text-slate-700 dark:text-slate-200">Nov 22 - Dec 21</p>
+          </article>
+          <article class="reveal rounded-2xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800 p-4">
+            <h3 class="font-bold">Capricorn</h3>
+            <p class="mt-1 text-slate-700 dark:text-slate-200">Dec 22 - Jan 19</p>
+          </article>
+          <article class="reveal rounded-2xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800 p-4">
+            <h3 class="font-bold">Aquarius</h3>
+            <p class="mt-1 text-slate-700 dark:text-slate-200">Jan 20 - Feb 18</p>
+          </article>
+          <article class="reveal rounded-2xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800 p-4">
+            <h3 class="font-bold">Pisces</h3>
+            <p class="mt-1 text-slate-700 dark:text-slate-200">Feb 19 - Mar 20</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container mx-auto px-4 py-12">
+      <div class="grid gap-5 md:grid-cols-3">
+        <article class="reveal rounded-2xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800/80 p-5">
+          <h3 class="text-lg font-bold">Can You Guess Every Zodiac Sign?</h3>
+          <p class="mt-2 text-slate-700 dark:text-slate-200">Play the zodiac season quiz where date boundaries are the main challenge.</p>
+        </article>
+        <article class="reveal rounded-2xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800/80 p-5">
+          <h3 class="text-lg font-bold">Quiz To Learn Zodiac Sign Dates</h3>
+          <p class="mt-2 text-slate-700 dark:text-slate-200">A clean loop for anyone asking how to remember zodiac signs quickly.</p>
+        </article>
+        <article class="reveal rounded-2xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800/80 p-5">
+          <h3 class="text-lg font-bold">Free Zodiac Sign Quiz Game</h3>
+          <p class="mt-2 text-slate-700 dark:text-slate-200">No paywall, no account wall, just instant astrology practice and progress.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="faq" class="container mx-auto px-4 pb-16">
+      <div class="grid gap-8 lg:grid-cols-[1fr_1fr]">
+        <div class="reveal">
+          <h2 class="font-serif text-3xl font-bold md:text-4xl">FAQ: Zodiac Sign Dates And Memory</h2>
+          <p class="mt-4 text-slate-700 dark:text-slate-200">
+            Answers to common questions about zodiac sign dates, horoscope seasons, and the learning strategy behind this astrology game.
+          </p>
+          <div class="mt-6 rounded-2xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800/80 p-5">
+            <p class="text-sm uppercase tracking-[0.08em] text-slate-500">Popular search</p>
+            <p class="mt-2 text-xl font-bold">"when do zodiac signs start"</p>
+            <p class="mt-2 text-slate-700 dark:text-slate-200">Start with boundary dates, then move to the full zodiac wheel and monthly recall drills.</p>
+          </div>
+        </div>
+
+        <div class="reveal space-y-3">
+          <details class="rounded-xl border border-slate-300 dark:border-slate-600/80 bg-white dark:bg-slate-800 px-4 py-3 open:bg-brand-50/40">
+            <summary class="cursor-pointer font-semibold">What zodiac sign is March 21?</summary>
+            <p class="mt-2 text-slate-700 dark:text-slate-200">March 21 is generally Aries. Zodiax reinforces this with repeated zodiac sign birthday quiz prompts.</p>
+          </details>
+          <details class="rounded-xl border border-slate-300 dark:border-slate-600/80 bg-white dark:bg-slate-800 px-4 py-3 open:bg-brand-50/40">
+            <summary class="cursor-pointer font-semibold">How to memorize zodiac signs and dates?</summary>
+            <p class="mt-2 text-slate-700 dark:text-slate-200">Use short daily sessions, active recall, and a zodiac sign matching game. This is the core Zodiax method.</p>
+          </details>
+          <details class="rounded-xl border border-slate-300 dark:border-slate-600/80 bg-white dark:bg-slate-800 px-4 py-3 open:bg-brand-50/40">
+            <summary class="cursor-pointer font-semibold">When do zodiac signs change?</summary>
+            <p class="mt-2 text-slate-700 dark:text-slate-200">Signs change at specific date ranges each month. The zodiac calendar quiz trains those transitions repeatedly.</p>
+          </details>
+          <details class="rounded-xl border border-slate-300 dark:border-slate-600/80 bg-white dark:bg-slate-800 px-4 py-3 open:bg-brand-50/40">
+            <summary class="cursor-pointer font-semibold">Is this good for beginner astrology quiz practice?</summary>
+            <p class="mt-2 text-slate-700 dark:text-slate-200">Yes. It is designed as a beginner zodiac quiz and astrology basics trainer with clear feedback.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="container mx-auto px-4 pb-16">
+      <div class="rounded-3xl border border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800/85 p-8 text-center shadow-xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.1em] text-slate-600 dark:text-slate-300">Zodiac Challenge Quiz</p>
+        <h2 class="mt-2 font-serif text-3xl font-bold md:text-4xl">Start Your Astrology Learning Game Today</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-slate-700 dark:text-slate-200">
+          Train with a fun astrology quiz online, improve your recall of sun signs and star signs, and turn zodiac birthdays into
+          second-nature knowledge.
+        </p>
+        <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
+          <a href="/en/zodiac-dates-quiz"
+            class="rounded-xl bg-gradient-to-r from-brand-600 to-brand-500 px-6 py-3 font-bold text-white shadow-lg shadow-brand-600/20 transition hover:-translate-y-0.5 hover:from-brand-700 hover:to-brand-600">
+            Play The Zodiac Quiz Game
+          </a>
+          <a href="/de/sternzeichen-daten-quiz"
+            class="rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-6 py-3 font-bold text-slate-800 dark:text-slate-100 transition hover:-translate-y-0.5 hover:bg-brand-50">
+            Deutsche Version
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-300 dark:border-slate-600/70 bg-white dark:bg-slate-800/70 py-8 backdrop-blur-md">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <p class="text-sm text-slate-600 dark:text-slate-300">Zodiax - zodiac learning app, horoscope game, and astrology trainer.</p>
+        <p class="text-sm text-slate-600 dark:text-slate-300">© <span id="year"></span> Zodiax</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const revealItems = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, {
+      threshold: 0.12
+    });
+
+    revealItems.forEach((item, index) => {
+      item.style.transitionDelay = `${Math.min(index * 45, 340)}ms`;
+      observer.observe(item);
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>

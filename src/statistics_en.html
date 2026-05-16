@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zodiax - Statistics</title>
+  <meta name="description" content="Track your zodiac quiz performance across all game modes." />
+
+  <link href="css/style.css" rel="stylesheet">
+  <script src="js/jquery.js"></script>
+</head>
+
+<body class="flex min-h-screen flex-col">
+  <div class="fixed inset-0 -z-10 bg-[radial-gradient(62rem_34rem_at_-10%_-15%,#dfccff_0%,transparent_60%),radial-gradient(58rem_36rem_at_110%_110%,#f4ccff_0%,transparent_62%),linear-gradient(180deg,#f6efff_0%,#faf7ff_60%,#faf7ff_100%)] dark:bg-[radial-gradient(62rem_34rem_at_-10%_-15%,#40206a_0%,transparent_60%),radial-gradient(58rem_36rem_at_110%_110%,#4f1d63_0%,transparent_62%),linear-gradient(180deg,#170f27_0%,#1d1430_60%,#1d1430_100%)]"></div>
+  <div class="fixed inset-0 -z-10">
+    <div class="hero-grid absolute inset-0"></div>
+    <div class="float-slower absolute left-[-5rem] top-20 h-56 w-56 rounded-full bg-brand-100/70 blur-3xl"></div>
+    <div class="float-slow absolute right-[-4rem] top-44 h-64 w-64 rounded-full bg-brand-500/20 blur-3xl"></div>
+  </div>
+
+  <header class="sticky top-0 z-10 border-b border-slate-300/70 bg-white/75 py-4 backdrop-blur-md dark:border-slate-700/70 dark:bg-slate-900/70">
+    <div class="container mx-auto flex items-center justify-between px-4">
+      <a href="/en/zodiac-sign-dates-guide" class="font-serif text-3xl font-bold tracking-[0.02em] text-slate-900 dark:text-slate-100">Zodiax</a>
+      <div class="flex items-center gap-3">
+        <a href="/en/zodiac-dates-quiz" class="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-800 shadow-sm transition hover:-translate-y-0.5 hover:bg-brand-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700">Play Quiz</a>
+        <a href="/de/sternzeichen-lernstatistik" class="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-800 shadow-sm transition hover:-translate-y-0.5 hover:bg-brand-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700">Deutsch</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mx-auto flex-grow px-4 py-8 md:py-12">
+    <section class="animate-rise-in rounded-3xl border border-slate-300/70 bg-white/80 p-6 shadow-xl backdrop-blur-md dark:border-slate-700 dark:bg-slate-900/70 md:p-8">
+      <p class="inline-flex items-center rounded-full border border-brand-500/35 bg-white/80 px-3 py-1 text-sm font-semibold text-brand-700 dark:bg-slate-900/75 dark:text-brand-100">Analytics Center</p>
+      <h1 id="pageTitle" class="mt-4 font-serif text-4xl font-bold tracking-[0.02em] text-slate-900 dark:text-slate-100">Statistics Dashboard</h1>
+      <p class="mt-3 max-w-3xl text-slate-700 dark:text-slate-200">Your full learning history, grouped by game mode and learning sessions.</p>
+
+      <div class="mt-5 flex flex-wrap items-center gap-3 rounded-2xl border border-slate-300/70 bg-white/85 p-4 dark:border-slate-700 dark:bg-slate-900/75">
+        <label for="resetMode" class="text-sm font-semibold text-slate-700 dark:text-slate-200">Reset Scope</label>
+        <select id="resetMode" class="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-800 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100">
+          <option value="all">All Modes</option>
+          <option value="sorted">Sorted</option>
+          <option value="transitions">Learn Transitions</option>
+          <option value="transitionsShuffled">Transitions Shuffled</option>
+          <option value="shuffled">Shuffled</option>
+        </select>
+        <button id="resetStatistics" class="rounded-xl border border-red-300 bg-red-50 px-4 py-2 text-sm font-bold text-red-700 transition hover:-translate-y-0.5 hover:bg-red-100 dark:border-red-500/50 dark:bg-red-500/10 dark:text-red-200 dark:hover:bg-red-500/20">Reset Statistics</button>
+      </div>
+
+      <section class="mt-8">
+        <div id="modeCards" class="grid gap-4 lg:grid-cols-2"></div>
+      </section>
+
+      <section class="mt-8 grid gap-4 lg:grid-cols-2">
+        <article class="rounded-2xl border border-slate-300/70 bg-white/85 p-5 shadow-md dark:border-slate-700 dark:bg-slate-900/75">
+          <h2 id="accuracyGraphTitle" class="font-serif text-2xl font-bold text-slate-900 dark:text-slate-100">Average Success Rate By Mode</h2>
+          <div id="accuracyGraph" class="mt-4 space-y-3"></div>
+        </article>
+
+        <article class="rounded-2xl border border-slate-300/70 bg-white/85 p-5 shadow-md dark:border-slate-700 dark:bg-slate-900/75">
+          <h2 id="correctWrongGraphTitle" class="font-serif text-2xl font-bold text-slate-900 dark:text-slate-100">Weak Spot Concentration By Mode</h2>
+          <div id="correctWrongGraph" class="mt-4 space-y-3"></div>
+        </article>
+      </section>
+
+      <section class="mt-8 rounded-2xl border border-slate-300/70 bg-white/85 p-5 shadow-md dark:border-slate-700 dark:bg-slate-900/75">
+        <h2 id="sessionsTitle" class="font-serif text-2xl font-bold text-slate-900 dark:text-slate-100">Recent Learning Sessions</h2>
+        <div id="sessionCards" class="mt-4 grid gap-3 md:grid-cols-2"></div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-300/70 bg-white/70 py-4 backdrop-blur-md dark:border-slate-700 dark:bg-slate-900/65">
+    <div class="container mx-auto text-center">
+      <p class="text-gray-600 dark:text-slate-300">&copy; <span id="year">2026</span> Zodiax. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/statistics-service.js"></script>
+  <script src="js/statistics-page.js"></script>
+</body>
+
+</html>
