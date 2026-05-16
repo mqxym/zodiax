@@ -106,6 +106,8 @@ For each mode (Sorted, Learn Transitions, Transitions Shuffled, Shuffled):
 Install dependencies:
 
 ```bash
+cp -r /src/css ./css
+cp -r /src/js ./js
 npm install
 ```
 
