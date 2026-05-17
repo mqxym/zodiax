@@ -60,7 +60,7 @@ const pageConfig = {
     modeNames: {
       sorted: 'Sortiert',
       transitions: 'Übergänge lernen',
-      transitionsShuffled: 'Übergänge + gemischt',
+      transitionsShuffled: 'Übergänge lernen + gemischt',
       shuffled: 'Gemischt'
     },
     labels: {
