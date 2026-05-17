@@ -112,11 +112,9 @@ For each mode (Sorted, Learn Transitions, Transitions Shuffled, Shuffled):
 Install dependencies:
 
 ```bash
-cp -r /src/css ./css
-cp -r /src/js ./js
-cp -r /src/img ./img
-
 npm install
+
+npm run copy:dev
 ```
 
 Build CSS once:
