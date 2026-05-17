@@ -1,5 +1,11 @@
 # Zodiax
 
+<img 
+  src="https://raw.githubusercontent.com/mqxym/zodiax/main/src/img/zodiax_icon.png" 
+  alt="Zodiax Icon" 
+  width="150"
+/>
+
 ## About
 
 Zodiax is a bilingual zodiac learning app with interactive quiz pages and a full statistics dashboard.
