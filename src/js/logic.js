@@ -482,6 +482,15 @@ function newQuestion() {
   shuffleAnswers();
   $('#popupOverlay').addClass('hidden');
   generateDate();
+
+  const questionAnchor = $('#date');
+  if (questionAnchor.length && questionAnchor.offset()) {
+    const stickyHeaderHeight = $('header').first().outerHeight() || 0;
+    const top = Math.max(0, questionAnchor.offset().top - stickyHeaderHeight - 12);
+    $('html, body').animate({ scrollTop: top }, 'slow');
+    return;
+  }
+
   $('html, body').animate({ scrollTop: 0 }, 'slow');
 }
 
