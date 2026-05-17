@@ -108,6 +108,8 @@ Install dependencies:
 ```bash
 cp -r /src/css ./css
 cp -r /src/js ./js
+cp -r /src/img ./img
+
 npm install
 ```
 
