@@ -7,6 +7,7 @@ let currentStreak = 0;
 let bestStreak = 0;
 let statisticsServiceReady = false;
 let nextSessionCountdownIntervalId = null;
+let liveSessionDateKey = null;
 const LAST_MODE_STORAGE_KEY = 'zodiax-last-game-mode';
 const SESSION_GOAL_STORAGE_KEY = 'zodiax-session-goal';
 const SESSION_GOAL_STEP = 25;
@@ -102,6 +103,26 @@ function getEmptyModeStatistics() {
   };
 }
 
+function getLocalDateKey() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+async function getCurrentModeStatisticsSnapshot() {
+  if (!window.StatisticsService) {
+    return getEmptyModeStatistics();
+  }
+
+  if (typeof window.StatisticsService.getLiveModeSummary === 'function') {
+    return window.StatisticsService.getLiveModeSummary(getCurrentMode());
+  }
+
+  return window.StatisticsService.getModeSummary(getCurrentMode());
+}
+
 function applyModeStatisticsSnapshot(snapshot) {
   const modeSnapshot = snapshot || getEmptyModeStatistics();
 
@@ -118,7 +139,7 @@ async function loadModeStatistics() {
     return;
   }
 
-  const snapshot = await window.StatisticsService.getModeSummary(getCurrentMode());
+  const snapshot = await getCurrentModeStatisticsSnapshot();
   applyModeStatisticsSnapshot(snapshot);
   updateStatisticsUI();
 }
@@ -300,7 +321,16 @@ function startNextSessionCountdown() {
     window.clearInterval(nextSessionCountdownIntervalId);
   }
 
+  liveSessionDateKey = getLocalDateKey();
+
   const updateCountdown = () => {
+    const currentDateKey = getLocalDateKey();
+
+    if (currentDateKey !== liveSessionDateKey) {
+      liveSessionDateKey = currentDateKey;
+      void loadModeStatistics();
+    }
+
     const now = new Date();
     const nextSessionStart = new Date(now);
     nextSessionStart.setHours(24, 0, 0, 0);
@@ -355,13 +385,14 @@ async function showResult() {
 
   if (statisticsServiceReady && window.StatisticsService) {
     try {
-      const summary = await window.StatisticsService.recordAnswer({
+      await window.StatisticsService.recordAnswer({
         mode: getCurrentMode(),
         selectedZodiacKey: selectedValue,
         correctZodiacKey: correctZodiac,
         isCorrect
       });
 
+      const summary = await getCurrentModeStatisticsSnapshot();
       applyModeStatisticsSnapshot(summary);
     } catch (error) {
       console.error('Failed to record statistics:', error);

@@ -12,8 +12,20 @@
   let dbPromise = null;
   let activeLocale = 'en';
 
+  function getLocalDateKey(date = new Date()) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+
   function getTodayKey() {
-    return new Date().toISOString().slice(0, 10);
+    return getLocalDateKey();
+  }
+
+  function getStartOfToday() {
+    const now = new Date();
+    return new Date(now.getFullYear(), now.getMonth(), now.getDate());
   }
 
   function cloneMapTemplate() {
@@ -164,6 +176,61 @@
       tx.oncomplete = () => resolve();
       tx.onerror = () => reject(tx.error);
       tx.onabort = () => reject(tx.error);
+    });
+
+    return withAccuracy(summary);
+  }
+
+  async function getLiveModeSummary(mode) {
+    if (!SUPPORTED_MODES.includes(mode)) {
+      throw new Error('Unsupported mode for summary');
+    }
+
+    const db = await openDatabase();
+    const tx = db.transaction([ANSWERS_STORE], 'readonly');
+    const answersStore = getObjectStore(tx, ANSWERS_STORE);
+    const answersByModeIndex = answersStore.index('mode');
+    const startOfToday = getStartOfToday().getTime();
+    const answers = await requestToPromise(answersByModeIndex.getAll(IDBKeyRange.only(mode)));
+
+    await new Promise((resolve, reject) => {
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error);
+      tx.onabort = () => reject(tx.error);
+    });
+
+    const todaysAnswers = answers
+      .filter((answer) => {
+        if (!answer || typeof answer.timestamp !== 'string') {
+          return false;
+        }
+
+        const answerTime = new Date(answer.timestamp).getTime();
+        return Number.isFinite(answerTime) && answerTime >= startOfToday;
+      })
+      .sort((left, right) => new Date(left.timestamp).getTime() - new Date(right.timestamp).getTime());
+
+    const summary = createEmptyModeSummary(mode);
+    summary.zodiacCorrect = ensureZodiacMap(summary.zodiacCorrect);
+    summary.zodiacWrong = ensureZodiacMap(summary.zodiacWrong);
+    summary.lastStreakDate = getTodayKey();
+
+    todaysAnswers.forEach((answer) => {
+      const correctZodiacKey = String(answer.correctZodiacKey);
+      const isCorrect = Boolean(answer.isCorrect);
+
+      summary.attempts += 1;
+
+      if (isCorrect) {
+        summary.correct += 1;
+        summary.currentStreak += 1;
+        summary.bestStreak = Math.max(summary.bestStreak, summary.currentStreak);
+        summary.zodiacCorrect[correctZodiacKey] = (summary.zodiacCorrect[correctZodiacKey] || 0) + 1;
+      } else {
+        summary.wrong += 1;
+        summary.currentStreak = 0;
+        summary.zodiacWrong[correctZodiacKey] = (summary.zodiacWrong[correctZodiacKey] || 0) + 1;
+      }
     });
 
     return withAccuracy(summary);
@@ -442,6 +509,7 @@
   window.StatisticsService = {
     init,
     getModeSummary,
+    getLiveModeSummary,
     getAllModeSummaries,
     getRecentSessions,
     recordAnswer,

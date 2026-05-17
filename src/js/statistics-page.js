@@ -237,6 +237,7 @@ function renderWeakSpotGraph(dataByMode) {
 function renderSessions(sessions) {
   const cfg = getConfig();
   const container = $('#sessionCards');
+  const totalSessions = sessions.length;
   container.empty();
 
   if (!sessions.length) {
@@ -252,7 +253,7 @@ function renderSessions(sessions) {
 
     const card = `
       <article class="rounded-xl border border-slate-300/70 bg-white p-4 dark:border-slate-700 dark:bg-slate-900/75">
-        <p class="text-xs uppercase tracking-[0.08em] text-slate-500 dark:text-slate-300">${cfg.sessionCard} ${index + 1}</p>
+        <p class="text-xs uppercase tracking-[0.08em] text-slate-500 dark:text-slate-300">${cfg.sessionCard} ${totalSessions - index}</p>
         <h4 class="mt-1 text-sm font-semibold text-slate-900 dark:text-slate-100">${dateText}</h4>
         <p class="mt-2 text-sm text-slate-700 dark:text-slate-200">${cfg.labels.attempts}: ${session.attempts} | ${cfg.labels.accuracy}: ${session.accuracy}%</p>
         <p class="mt-1 text-sm text-slate-700 dark:text-slate-200">${cfg.labels.modesPlayed}: ${modesPlayedText || cfg.labels.modesPlayedNone}</p>
