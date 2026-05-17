@@ -10,6 +10,7 @@ let nextSessionCountdownIntervalId = null;
 let liveSessionDateKey = null;
 const LAST_MODE_STORAGE_KEY = 'zodiax-last-game-mode';
 const SESSION_GOAL_STORAGE_KEY = 'zodiax-session-goal';
+const SESSION_GOAL_DATE_STORAGE_KEY = 'zodiax-session-goal-date';
 const SESSION_GOAL_STEP = 25;
 const DEFAULT_SESSION_GOAL = 50;
 let sessionGoal = DEFAULT_SESSION_GOAL;
@@ -180,12 +181,19 @@ async function onSiteLoad() {
 }
 
 function loadSessionGoal() {
+  const todayKey = getLocalDateKey();
+
   try {
+    const savedGoalDate = window.localStorage.getItem(SESSION_GOAL_DATE_STORAGE_KEY);
     const savedGoal = Number.parseInt(window.localStorage.getItem(SESSION_GOAL_STORAGE_KEY), 10);
 
-    if (Number.isFinite(savedGoal) && savedGoal > 0) {
+    if (savedGoalDate === todayKey && Number.isFinite(savedGoal) && savedGoal > 0) {
       sessionGoal = savedGoal;
+      return;
     }
+
+    sessionGoal = DEFAULT_SESSION_GOAL;
+    persistSessionGoal();
   } catch (error) {
     console.warn('Could not read session goal:', error);
   }
@@ -194,6 +202,7 @@ function loadSessionGoal() {
 function persistSessionGoal() {
   try {
     window.localStorage.setItem(SESSION_GOAL_STORAGE_KEY, String(sessionGoal));
+    window.localStorage.setItem(SESSION_GOAL_DATE_STORAGE_KEY, getLocalDateKey());
   } catch (error) {
     console.warn('Could not persist session goal:', error);
   }
@@ -328,6 +337,9 @@ function startNextSessionCountdown() {
 
     if (currentDateKey !== liveSessionDateKey) {
       liveSessionDateKey = currentDateKey;
+      sessionGoal = DEFAULT_SESSION_GOAL;
+      persistSessionGoal();
+      updateStatisticsUI();
       void loadModeStatistics();
     }
 
