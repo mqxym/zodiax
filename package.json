@@ -1,10 +1,11 @@
 {
   "name": "zodiax",
-  "version": "1.0.0",
+  "version": "2.2.0",
   "private": true,
   "scripts": {
+    "copy:dev": "mkdir -p ./css ./img ./js; cp -r src/css css; cp -r src/img img; cp -r src/js js",
     "build:css": "tailwindcss -i ./tailwind.css -o ./src/css/style.css --minify",
-    "watch:css": "tailwindcss -i ./tailwind.css -o ./src/css/style.css --watch"
+    "watch:css": "tailwindcss -i ./tailwind.css -o ./src/css/style.css -o ./css/style.css --watch"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.8",
